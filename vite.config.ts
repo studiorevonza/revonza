@@ -14,11 +14,26 @@ export default defineConfig(({ mode }) => {
         outDir: 'dist',
         sourcemap: false,
         minify: 'terser',
+        chunkSizeWarningLimit: 1000, // Increase limit to 1000kB
         rollupOptions: {
           output: {
-            manualChunks: {
-              'react-vendor': ['react', 'react-dom'],
-              'router-vendor': ['react-router-dom'],
+            manualChunks(id) {
+              if (id.includes('node_modules')) {
+                if (id.includes('react') && !id.includes('react-dom')) {
+                  return 'react';
+                }
+                if (id.includes('react-dom')) {
+                  return 'react-dom';
+                }
+                if (id.includes('react-router')) {
+                  return 'react-router';
+                }
+                if (id.includes('lucide-react')) {
+                  return 'lucide-icons';
+                }
+                // Group other small dependencies together
+                return 'vendor';
+              }
             }
           }
         }
