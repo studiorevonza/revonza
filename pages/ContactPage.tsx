@@ -57,8 +57,8 @@ const ContactPage: React.FC = () => {
                   <Mail size={24} />
                 </div>
                 <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Email Us</h3>
-                <a href="mailto:hello@revonzastudio.com" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors block break-words">
-                  hello@revonzastudio.com
+                <a href="mailto:studiorevonza@gmail.com" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors block break-words">
+                  studiorevonza@gmail.com
                 </a>
              </div>
 
@@ -68,9 +68,14 @@ const ContactPage: React.FC = () => {
                   <Phone size={24} />
                 </div>
                 <h3 className="text-sm font-bold text-gray-500 uppercase tracking-wider mb-2">Call Us</h3>
-                <a href="tel:+15551234567" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
-                  +1 (555) 123-4567
-                </a>
+                <div className="flex flex-col gap-2">
+                  <a href="tel:+918851619647" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
+                    +91 8851619647
+                  </a>
+                  <a href="tel:+919714407181" className="text-2xl font-semibold text-revonza-text hover:text-revonza-accent transition-colors">
+                    +91 9714407181
+                  </a>
+                </div>
              </div>
 
 
