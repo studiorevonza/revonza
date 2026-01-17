@@ -8,11 +8,20 @@ const PricingPage: React.FC = () => {
     <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         <div className="text-center mb-24 animate-fade-in-up">
-           <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Pricing</span>
-          <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-8">Invest in Excellence</h1>
+           <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Detailed Pricing</span>
+          <h1 className="text-5xl md:text-7xl font-bold text-revonza-text mb-8">Simple, Fair Pricing</h1>
           <p className="text-xl text-revonza-textMuted max-w-2xl mx-auto font-light leading-relaxed">
-            Transparent pricing packages designed to scale with your ambition. No hidden fees, just pure value.
+            Choose the perfect plan for your project. No hidden fees, no surprises.
           </p>
+        </div>
+
+        {/* Currency Selector */}
+        <div className="flex justify-center mb-16">
+          <div className="inline-flex items-center bg-revonza-surface rounded-full p-1 border border-revonza-border">
+            <button className="px-6 py-2 rounded-full text-sm font-medium">INR (₹)</button>
+            <button className="px-6 py-2 rounded-full text-sm font-medium">USD ($)</button>
+            <button className="px-6 py-2 rounded-full text-sm font-medium bg-revonza-accent text-white">Auto</button>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-7xl mx-auto">
@@ -35,7 +44,7 @@ const PricingPage: React.FC = () => {
               <h3 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h3>
               <div className="mb-10">
                 <span className="text-6xl font-bold text-revonza-text tracking-tighter">{tier.price}</span>
-                {tier.price !== 'Custom' && <span className="text-gray-500 ml-2 font-medium">/project</span>}
+                {tier.price !== 'Custom Price' && <span className="text-gray-500 ml-2 font-medium">/project</span>}
               </div>
 
               <div className={`h-[1px] w-full mb-10 ${tier.recommended ? 'bg-gradient-to-r from-revonza-accent/50 to-transparent' : 'bg-revonza-border'}`}></div>
@@ -63,6 +72,148 @@ const PricingPage: React.FC = () => {
               </Link>
             </div>
           ))}
+        </div>
+
+        {/* Additional Options & Resources */}
+        <div className="mt-32 max-w-7xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-revonza-text mb-16">Additional Options & Resources</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Demo/Trial Options */}
+            <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
+              <h3 className="text-xl font-bold text-revonza-text mb-6">Demo / Trial Options</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">7-Day Free Trial</span>
+                  <span className="font-bold text-revonza-text">Free</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Basic Demo Setup</span>
+                  <span className="font-bold text-revonza-text">₹2,500</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Extended Trial (30 Days)</span>
+                  <span className="font-bold text-revonza-text">₹5,500</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Custom Demo Package</span>
+                  <span className="font-bold text-revonza-text">₹8,500</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Additional Resources */}
+            <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
+              <h3 className="text-xl font-bold text-revonza-text mb-6">Additional Resources</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Content Writing (per page)</span>
+                  <span className="font-bold text-revonza-text">₹1,250</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Stock Photos Package</span>
+                  <span className="font-bold text-revonza-text">₹2,500</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Custom Illustrations</span>
+                  <span className="font-bold text-revonza-text">₹5,000</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Video Integration</span>
+                  <span className="font-bold text-revonza-text">₹7,500</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* E-commerce Options */}
+            <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border">
+              <h3 className="text-xl font-bold text-revonza-text mb-6">E-commerce & Domain</h3>
+              <div className="space-y-4">
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">E-commerce Setup</span>
+                  <span className="font-bold text-revonza-text">₹12,500</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Payment Gateway Integration</span>
+                  <span className="font-bold text-revonza-text">₹5,000</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">Custom Domain Setup</span>
+                  <span className="font-bold text-revonza-text">₹750</span>
+                </div>
+                <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
+                  <span className="text-revonza-textMuted">SSL Certificate</span>
+                  <span className="font-bold text-revonza-text">₹2,250</span>
+                </div>
+              </div>
+            </div>
+            
+            {/* Support & Maintenance */}
+            <div className="glass-panel p-8 rounded-[2rem] border border-revonza-border md:col-span-2 lg:col-span-3">
+              <h3 className="text-xl font-bold text-revonza-text mb-6">Support & Maintenance</h3>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div>
+                  <h4 className="font-bold text-revonza-text mb-4">Monthly Plans</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Basic Maintenance</span>
+                      <span className="font-bold text-revonza-text">₹6,500</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Premium Maintenance</span>
+                      <span className="font-bold text-revonza-text">₹22,500</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-revonza-text mb-4">On-demand Services</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">On-demand Support</span>
+                      <span className="font-bold text-revonza-text">₹3,750</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Content Updates</span>
+                      <span className="font-bold text-revonza-text">₹2,000</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Security Updates</span>
+                      <span className="font-bold text-revonza-text">₹1,250</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Backup & Recovery</span>
+                      <span className="font-bold text-revonza-text">₹750</span>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <h4 className="font-bold text-revonza-text mb-4">Add-ons</h4>
+                  <div className="space-y-3">
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Urgent Delivery</span>
+                      <span className="font-bold text-revonza-text">+20% – 30%</span>
+                    </div>
+                    <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
+                      <span className="text-revonza-textMuted">Custom Features</span>
+                      <span className="font-bold text-revonza-text">Quotation-based</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Ready to get started section */}
+        <div className="mt-32 max-w-5xl mx-auto text-center glass-panel rounded-[3rem] p-16 border border-revonza-border relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-revonza-accent/10 to-transparent rounded-[3rem] blur-2xl opacity-50"></div>
+          <div className="relative z-10">
+            <h2 className="text-4xl font-bold text-revonza-text mb-6">Ready to get started?</h2>
+            <p className="text-xl text-revonza-textMuted mb-12 max-w-2xl mx-auto">Have specific requirements? We offer custom solutions tailored to your unique needs.</p>
+            <Link to="/contact" className="inline-block px-10 py-4 bg-revonza-text text-revonza-base rounded-full font-bold text-lg hover:bg-revonza-accent hover:text-white hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
+              Contact Us for Custom Quote
+            </Link>
+          </div>
         </div>
       </div>
     </div>

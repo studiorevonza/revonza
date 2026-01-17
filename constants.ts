@@ -140,34 +140,48 @@ export const PROJECTS: Project[] = [
 export const PRICING: PricingTier[] = [
   {
     name: 'Starter',
-    price: '$499',
+    price: '₹20,000/project',
     features: [
-      'Basic Website (3 Pages)',
-      'Logo Design',
+      'Basic Website (5–7 Pages)',
+      'Responsive Design (Mobile + Tablet)',
+      'Template-based Modern UI',
+      'Contact / Lead Form',
       'Basic SEO Setup',
+      'Google Analytics Setup',
+      'Performance Optimization',
       '1 Month Support'
     ]
   },
   {
     name: 'Professional',
-    price: '$1,299',
+    price: '₹40,000 /project',
     features: [
-      'Full Website (10 Pages)',
-      'Advanced SEO & Analytics',
+      'Advanced Website (Custom UI)',
+      'CMS / Admin Panel',
+      'Animations & Interactions',
+      'Advanced SEO Structure',
       'Branding Kit (Logo + Graphics)',
-      'Priority Hosting',
+      'Google Analytics & Tracking',
+      'Social Media Integration',
+      'Blog Setup',
+      'Priority Support',
       '3 Months Support'
     ],
     recommended: true
   },
   {
     name: 'Enterprise',
-    price: 'Custom',
+    price: 'Custom Price',
     features: [
-      'Custom Web Application',
+      'Fully Custom Website / Web Application',
+      'Dashboards & Role-based Access',
       'AI Solution Integration',
-      'Full Marketing Suite',
-      'Dedicated Server Hosting',
+      'CRM & Third-party Integrations',
+      'Advanced Security & Performance',
+      'Custom Analytics Dashboard',
+      'Dedicated Project Manager',
+      'Scalable Architecture',
+      'White-label Solution',
       '24/7 Priority Support'
     ]
   }
