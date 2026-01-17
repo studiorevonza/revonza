@@ -4,7 +4,7 @@ import { Check, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PricingPage: React.FC = () => {
-  const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('INR');
+  const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('AUTO');
 
   // Exchange rate: 1 USD = 83.50 INR (approximate)
   const exchangeRate = 83.50;
@@ -26,7 +26,8 @@ const PricingPage: React.FC = () => {
       const convertedValue = numericValue / exchangeRate;
       return `$${convertedValue.toFixed(2)}`;
     } else {
-      // AUTO: Show INR for India, USD for other countries
+      // AUTO: Detect user's location or default to INR
+      // For now, defaulting to INR as most users are likely from India based on the pricing
       return `₹${numericValue.toLocaleString('en-IN')}`;
     }
   };
