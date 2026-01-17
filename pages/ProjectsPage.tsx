@@ -1,0 +1,124 @@
+import React, { useState } from 'react';
+import { PROJECTS, SERVICES } from '../constants';
+import { ExternalLink, Check, X } from 'lucide-react';
+
+const ProjectsPage: React.FC = () => {
+  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
+
+  const toggleFilter = (serviceId: string) => {
+    setSelectedFilters(prev => 
+      prev.includes(serviceId)
+        ? prev.filter(id => id !== serviceId)
+        : [...prev, serviceId]
+    );
+  };
+
+  const clearFilters = () => setSelectedFilters([]);
+
+  const filteredProjects = selectedFilters.length === 0
+    ? PROJECTS
+    : PROJECTS.filter(project => 
+        project.tags.some(tag => selectedFilters.includes(tag))
+      );
+
+  return (
+    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+      <div className="container mx-auto px-4">
+        
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
+          <div>
+            <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Portfolio</span>
+            <h1 className="text-6xl md:text-8xl font-bold text-revonza-text mb-6">Selected Work</h1>
+            <p className="text-xl text-revonza-textMuted max-w-lg font-light">
+              A curated collection of our most impactful digital transformations.
+            </p>
+          </div>
+          
+          {/* Active Filter Summary / Clear */}
+          {selectedFilters.length > 0 && (
+             <button 
+               onClick={clearFilters}
+               className="text-revonza-accent hover:text-revonza-text transition-colors flex items-center gap-2 text-sm mt-8 md:mt-0 font-bold uppercase tracking-wider bg-revonza-surface px-4 py-2 rounded-full border border-revonza-accent/20 hover:border-revonza-accent"
+             >
+               <X size={14} /> Clear Filters ({selectedFilters.length})
+             </button>
+          )}
+        </div>
+
+        {/* Filter Tags - Refined Buttons */}
+        <div className="flex flex-wrap gap-3 mb-20 animate-fade-in delay-100">
+          <button
+            onClick={clearFilters}
+            className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border ${
+              selectedFilters.length === 0
+                ? 'bg-revonza-text text-revonza-base border-revonza-text shadow-[0_0_20px_rgba(139,92,246,0.3)]'
+                : 'bg-revonza-surface text-gray-400 border-revonza-border hover:border-revonza-text hover:text-revonza-text'
+            }`}
+          >
+            All
+          </button>
+          {SERVICES.map((service) => {
+             const isActive = selectedFilters.includes(service.id);
+             return (
+              <button
+                key={service.id}
+                onClick={() => toggleFilter(service.id)}
+                className={`px-6 py-3 rounded-full text-xs font-bold uppercase tracking-widest transition-all duration-300 border flex items-center gap-2 ${
+                  isActive
+                    ? 'bg-revonza-accent border-revonza-accent text-white shadow-[0_0_20px_rgba(139,92,246,0.4)]'
+                    : 'bg-revonza-surface text-gray-400 border-revonza-border hover:border-revonza-text hover:text-revonza-text'
+                }`}
+              >
+                {isActive && <Check size={14} />}
+                {service.title}
+              </button>
+             );
+          })}
+        </div>
+
+        {/* Projects Grid - Improved Borders and Gradients */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+          {filteredProjects.map((project, index) => (
+            <div 
+              key={project.id} 
+              className="group relative rounded-[2rem] overflow-hidden bg-revonza-surface animate-fade-in-up border border-revonza-border hover:border-revonza-accent/30 transition-colors duration-500"
+              style={{ animationDelay: `${Math.min(index * 100, 500)}ms` }}
+            >
+              <div className="aspect-[4/3] overflow-hidden">
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 opacity-80 group-hover:opacity-100"
+                />
+              </div>
+              
+              {/* Overlay Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-revonza-base via-revonza-base/80 to-transparent p-8 flex flex-col justify-end translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                <div className="transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
+                  <span className="text-revonza-accent text-xs font-extrabold uppercase tracking-[0.2em] mb-3 block">{project.category}</span>
+                  <div className="flex justify-between items-center mb-2">
+                    <h3 className="text-2xl font-bold text-revonza-text group-hover:text-revonza-accent transition-colors">{project.title}</h3>
+                    <button className="w-10 h-10 rounded-full bg-revonza-text text-revonza-base flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-500 translate-x-4 group-hover:translate-x-0 hover:bg-revonza-accent hover:text-white">
+                      <ExternalLink size={18} />
+                    </button>
+                  </div>
+                  <p className="text-revonza-textMuted text-sm line-clamp-2 max-w-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {filteredProjects.length === 0 && (
+          <div className="text-center py-40 text-revonza-text">
+            <p className="text-2xl font-light">No projects found matching criteria.</p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ProjectsPage;

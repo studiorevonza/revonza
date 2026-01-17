@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.revonzastudio.tech/sitemap.xml
+
+# Prevent crawling of development/testing pages
+Disallow: /test/
+Disallow: /temp/
+
+# Host directive
+Host: https://www.revonzastudio.tech
