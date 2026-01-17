@@ -140,7 +140,7 @@ export const PROJECTS: Project[] = [
 export const PRICING: PricingTier[] = [
   {
     name: 'Starter',
-    price: '₹20,000/project',
+    price: '₹20,000',
     features: [
       'Basic Website (5–7 Pages)',
       'Responsive Design (Mobile + Tablet)',
@@ -154,7 +154,7 @@ export const PRICING: PricingTier[] = [
   },
   {
     name: 'Professional',
-    price: '₹40,000 /project',
+    price: '₹40,000',
     features: [
       'Advanced Website (Custom UI)',
       'CMS / Admin Panel',

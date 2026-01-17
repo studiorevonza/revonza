@@ -1,9 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { PRICING } from '../constants';
 import { Check, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const PricingPage: React.FC = () => {
+  const [currency, setCurrency] = useState<'INR' | 'USD' | 'AUTO'>('INR');
+
+  // Exchange rate: 1 USD = 83.50 INR (approximate)
+  const exchangeRate = 83.50;
+
+  const convertPrice = (price: string): string => {
+    if (price.includes('Custom') || price.includes('Free')) {
+      return price;
+    }
+    
+    const numericValue = parseFloat(price.replace(/[₹$,]/g, '').replace(/\s/g, ''));
+    
+    if (isNaN(numericValue)) {
+      return price;
+    }
+    
+    if (currency === 'INR') {
+      return `₹${numericValue.toLocaleString('en-IN')}`;
+    } else if (currency === 'USD') {
+      const convertedValue = numericValue / exchangeRate;
+      return `$${convertedValue.toFixed(2)}`;
+    } else {
+      // AUTO: Show INR for India, USD for other countries
+      return `₹${numericValue.toLocaleString('en-IN')}`;
+    }
+  };
+
   return (
     <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
@@ -18,9 +45,24 @@ const PricingPage: React.FC = () => {
         {/* Currency Selector */}
         <div className="flex justify-center mb-16">
           <div className="inline-flex items-center bg-revonza-surface rounded-full p-1 border border-revonza-border">
-            <button className="px-6 py-2 rounded-full text-sm font-medium">INR (₹)</button>
-            <button className="px-6 py-2 rounded-full text-sm font-medium">USD ($)</button>
-            <button className="px-6 py-2 rounded-full text-sm font-medium bg-revonza-accent text-white">Auto</button>
+            <button 
+              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'INR' ? 'bg-revonza-accent text-white' : ''}`}
+              onClick={() => setCurrency('INR')}
+            >
+              INR (₹)
+            </button>
+            <button 
+              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'USD' ? 'bg-revonza-accent text-white' : ''}`}
+              onClick={() => setCurrency('USD')}
+            >
+              USD ($)
+            </button>
+            <button 
+              className={`px-6 py-2 rounded-full text-sm font-medium ${currency === 'AUTO' ? 'bg-revonza-accent text-white' : ''}`}
+              onClick={() => setCurrency('AUTO')}
+            >
+              Auto
+            </button>
           </div>
         </div>
 
@@ -43,8 +85,8 @@ const PricingPage: React.FC = () => {
 
               <h3 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h3>
               <div className="mb-10">
-                <span className="text-6xl font-bold text-revonza-text tracking-tighter">{tier.price}</span>
-                {tier.price !== 'Custom Price' && <span className="text-gray-500 ml-2 font-medium">/project</span>}
+                <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
+                {(tier.price !== 'Custom Price' && !tier.price.includes('Free')) && <span className="text-gray-500 ml-2 font-small">/project</span>}
               </div>
 
               <div className={`h-[1px] w-full mb-10 ${tier.recommended ? 'bg-gradient-to-r from-revonza-accent/50 to-transparent' : 'bg-revonza-border'}`}></div>
@@ -89,15 +131,15 @@ const PricingPage: React.FC = () => {
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Basic Demo Setup</span>
-                  <span className="font-bold text-revonza-text">₹2,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹2,500')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Extended Trial (30 Days)</span>
-                  <span className="font-bold text-revonza-text">₹5,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹5,500')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Custom Demo Package</span>
-                  <span className="font-bold text-revonza-text">₹8,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹8,500')}</span>
                 </div>
               </div>
             </div>
@@ -108,19 +150,19 @@ const PricingPage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Content Writing (per page)</span>
-                  <span className="font-bold text-revonza-text">₹1,250</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹1,250')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Stock Photos Package</span>
-                  <span className="font-bold text-revonza-text">₹2,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹2,500')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Custom Illustrations</span>
-                  <span className="font-bold text-revonza-text">₹5,000</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹5,000')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Video Integration</span>
-                  <span className="font-bold text-revonza-text">₹7,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹7,500')}</span>
                 </div>
               </div>
             </div>
@@ -131,19 +173,19 @@ const PricingPage: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">E-commerce Setup</span>
-                  <span className="font-bold text-revonza-text">₹12,500</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹12,500')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Payment Gateway Integration</span>
-                  <span className="font-bold text-revonza-text">₹5,000</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹5,000')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">Custom Domain Setup</span>
-                  <span className="font-bold text-revonza-text">₹750</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹750')}</span>
                 </div>
                 <div className="flex justify-between items-center py-3 border-b border-revonza-border last:border-0">
                   <span className="text-revonza-textMuted">SSL Certificate</span>
-                  <span className="font-bold text-revonza-text">₹2,250</span>
+                  <span className="font-bold text-revonza-text">{convertPrice('₹2,250')}</span>
                 </div>
               </div>
             </div>
@@ -157,11 +199,11 @@ const PricingPage: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">Basic Maintenance</span>
-                      <span className="font-bold text-revonza-text">₹6,500</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹6,500')}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">Premium Maintenance</span>
-                      <span className="font-bold text-revonza-text">₹22,500</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹22,500')}</span>
                     </div>
                   </div>
                 </div>
@@ -170,19 +212,19 @@ const PricingPage: React.FC = () => {
                   <div className="space-y-3">
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">On-demand Support</span>
-                      <span className="font-bold text-revonza-text">₹3,750</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹3,750')}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">Content Updates</span>
-                      <span className="font-bold text-revonza-text">₹2,000</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹2,000')}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">Security Updates</span>
-                      <span className="font-bold text-revonza-text">₹1,250</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹1,250')}</span>
                     </div>
                     <div className="flex justify-between items-center py-2 border-b border-revonza-border last:border-0">
                       <span className="text-revonza-textMuted">Backup & Recovery</span>
-                      <span className="font-bold text-revonza-text">₹750</span>
+                      <span className="font-bold text-revonza-text">{convertPrice('₹750')}</span>
                     </div>
                   </div>
                 </div>
