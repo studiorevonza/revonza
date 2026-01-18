@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Server, Shield, Zap, Database, Cloud, Globe } from 'lucide-react';
+import { Server, Shield, Zap, Database, Cloud, Globe, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const HostingSolutionsProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const HostingSolutionsProjects: React.FC = () => {
       description: 'Seamless migration of high-traffic e-commerce platform to our managed hosting solution.',
       tech: ['Cloud Migration', 'Load Balancing', 'CDN Setup'],
       timeline: '2 weeks',
-      outcome: 'Reduced page load time by 60%'
+      outcome: 'Reduced page load time by 60%',
+      imageUrl: 'https://images.unsplash.com/photo-1451187580459-4349e8070415?q=80&w=2788&auto=format&fit=crop',
+      projectUrl: 'https://example-ecommerce-migration.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const HostingSolutionsProjects: React.FC = () => {
       description: 'Scalable hosting solution for enterprise SaaS application with auto-scaling capabilities.',
       tech: ['Kubernetes', 'Auto-scaling', 'Multi-region Deployment'],
       timeline: '1 month',
-      outcome: 'Achieved 99.99% uptime SLA'
+      outcome: 'Achieved 99.99% uptime SLA',
+      imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-enterprise-infrastructure.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const HostingSolutionsProjects: React.FC = () => {
       description: 'High-bandwidth hosting solution for video streaming service with global CDN.',
       tech: ['CDN', 'Bandwidth Optimization', 'Caching'],
       timeline: '3 weeks',
-      outcome: 'Supported 100K concurrent users'
+      outcome: 'Supported 100K concurrent users',
+      imageUrl: 'https://images.unsplash.com/photo-1550439308-e4f87d0063a2?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-media-streaming-platform.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const HostingSolutionsProjects: React.FC = () => {
       description: 'Performance optimization and hosting upgrade for high-volume database application.',
       tech: ['Database Optimization', 'SSD Storage', 'Backup Solutions'],
       timeline: '2 weeks',
-      outcome: 'Improved query performance by 80%'
+      outcome: 'Improved query performance by 80%',
+      imageUrl: 'https://images.unsplash.com/photo-1558346490-a720477a6e8b?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-database-optimization.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const HostingSolutionsProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const HostingSolutionsProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

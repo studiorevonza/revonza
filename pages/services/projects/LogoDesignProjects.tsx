@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Palette, Fingerprint, Heart, Star, Brush, Eye } from 'lucide-react';
+import { Palette, Fingerprint, Heart, Star, Brush, Eye, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const LogoDesignProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const LogoDesignProjects: React.FC = () => {
       description: 'Complete brand identity for a fintech startup including logo, color palette, and brand guidelines.',
       tech: ['Adobe Illustrator', 'Brand Strategy', 'Typography'],
       timeline: '3 weeks',
-      outcome: 'Increased brand recognition by 80%'
+      outcome: 'Increased brand recognition by 80%',
+      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
+      projectUrl: 'https://example-tech-branding.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const LogoDesignProjects: React.FC = () => {
       description: 'Modern logo design for a restaurant chain with multiple brand applications.',
       tech: ['Vector Design', 'Color Theory', 'Logo Variations'],
       timeline: '2 weeks',
-      outcome: 'Boosted customer retention by 45%'
+      outcome: 'Boosted customer retention by 45%',
+      imageUrl: 'https://images.unsplash.com/photo-1556228453-efd3b2db8285?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-restaurant-logo.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const LogoDesignProjects: React.FC = () => {
       description: 'Dynamic logo system for a fitness brand with scalable applications.',
       tech: ['Motion Graphics', 'Iconography', 'Brand Guidelines'],
       timeline: '4 weeks',
-      outcome: 'Expanded to 5 locations in 6 months'
+      outcome: 'Expanded to 5 locations in 6 months',
+      imageUrl: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-fitness-brand.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const LogoDesignProjects: React.FC = () => {
       description: 'Sophisticated logo design for luxury fashion brand with elegant typography.',
       tech: ['Typography', 'Minimalism', 'Print Applications'],
       timeline: '3 weeks',
-      outcome: 'Featured in 3 fashion magazines'
+      outcome: 'Featured in 3 fashion magazines',
+      imageUrl: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2788&auto=format&fit=crop',
+      projectUrl: 'https://example-luxury-fashion.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const LogoDesignProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const LogoDesignProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

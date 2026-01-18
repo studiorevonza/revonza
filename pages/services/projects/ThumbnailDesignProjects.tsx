@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Layers, Play, Eye, Heart, Share2, Camera } from 'lucide-react';
+import { Layers, Play, Eye, Heart, Share2, Camera, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const ThumbnailDesignProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const ThumbnailDesignProjects: React.FC = () => {
       description: 'Series of eye-catching thumbnails for tech review channel that increased CTR by 200%.',
       tech: ['Photoshop', 'Color Psychology', 'Typography'],
       timeline: '1 month',
-      outcome: 'Gained 50K subscribers in 3 months'
+      outcome: 'Gained 50K subscribers in 3 months',
+      imageUrl: 'https://images.unsplash.com/photo-1541531455306-a1005f99df35?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-youtube-thumbs.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const ThumbnailDesignProjects: React.FC = () => {
       description: 'Consistent thumbnail style for educational content that improved watch time.',
       tech: ['Illustrator', 'Brand Consistency', 'Visual Hierarchy'],
       timeline: '2 weeks',
-      outcome: 'Increased average watch time by 60%'
+      outcome: 'Increased average watch time by 60%',
+      imageUrl: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-education-thumbs.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const ThumbnailDesignProjects: React.FC = () => {
       description: 'Multiple thumbnail variations for social media campaign with A/B testing.',
       tech: ['Canva Pro', 'A/B Testing', 'Platform Optimization'],
       timeline: '3 weeks',
-      outcome: 'Campaign reached 2M views'
+      outcome: 'Campaign reached 2M views',
+      imageUrl: 'https://images.unsplash.com/photo-1551650975-87deedd944c3?q=80&w=2788&auto=format&fit=crop',
+      projectUrl: 'https://example-social-thumbs.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const ThumbnailDesignProjects: React.FC = () => {
       description: 'Thumbnail design system for podcast series with consistent branding.',
       tech: ['Figma', 'Brand Guidelines', 'Typography'],
       timeline: '2 weeks',
-      outcome: 'Increased podcast downloads by 150%'
+      outcome: 'Increased podcast downloads by 150%',
+      imageUrl: 'https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-podcast-thumbs.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const ThumbnailDesignProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const ThumbnailDesignProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

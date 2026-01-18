@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Rocket, Zap, Users, TrendingUp, Megaphone, Target } from 'lucide-react';
+import { Rocket, Zap, Users, TrendingUp, Megaphone, Target, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const ProductLaunchingProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const ProductLaunchingProjects: React.FC = () => {
       description: 'Comprehensive launch strategy for B2B SaaS product with market research and execution.',
       tech: ['Go-to-Market Strategy', 'Market Research', 'PR Campaign'],
       timeline: '3 months',
-      outcome: 'Acquired 1000+ beta users in first month'
+      outcome: 'Acquired 1000+ beta users in first month',
+      imageUrl: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-saas-product-launch.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const ProductLaunchingProjects: React.FC = () => {
       description: 'Strategic launch of mobile app with pre-launch buzz and influencer partnerships.',
       tech: ['Influencer Marketing', 'ASO', 'Social Media Campaign'],
       timeline: '2 months',
-      outcome: 'Reached #1 in app store category'
+      outcome: 'Reached #1 in app store category',
+      imageUrl: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-mobile-app-launch.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const ProductLaunchingProjects: React.FC = () => {
       description: 'Coordinated launch of online store with inventory management and logistics setup.',
       tech: ['Supply Chain', 'Logistics', 'Inventory Management'],
       timeline: '4 months',
-      outcome: 'Generated $500K revenue in first quarter'
+      outcome: 'Generated $500K revenue in first quarter',
+      imageUrl: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-ecommerce-launch.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const ProductLaunchingProjects: React.FC = () => {
       description: 'Launch of physical product with crowdfunding campaign and manufacturing coordination.',
       tech: ['Crowdfunding', 'Manufacturing', 'Supply Chain'],
       timeline: '6 months',
-      outcome: 'Raised $2M in crowdfunding'
+      outcome: 'Raised $2M in crowdfunding',
+      imageUrl: 'https://images.unsplash.com/photo-1581091226033-d5c48150dbaa?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-hardware-product.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const ProductLaunchingProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const ProductLaunchingProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

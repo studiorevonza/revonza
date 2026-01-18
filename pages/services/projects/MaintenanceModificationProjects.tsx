@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Wrench, RefreshCw, Shield, Calendar, Monitor, Settings } from 'lucide-react';
+import { Wrench, RefreshCw, Shield, Calendar, Monitor, Settings, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const MaintenanceModificationProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const MaintenanceModificationProjects: React.FC = () => {
       description: 'Ongoing maintenance and performance optimization for high-traffic e-commerce site.',
       tech: ['Performance Optimization', 'Security Updates', 'Monitoring'],
       timeline: 'Ongoing',
-      outcome: 'Maintained 99.99% uptime during peak season'
+      outcome: 'Maintained 99.99% uptime during peak season',
+      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-ecommerce-performance.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const MaintenanceModificationProjects: React.FC = () => {
       description: 'Comprehensive maintenance package for corporate website with regular updates and modifications.',
       tech: ['Content Updates', 'Plugin Management', 'Security Patches'],
       timeline: 'Ongoing',
-      outcome: 'Zero security incidents in 2 years'
+      outcome: 'Zero security incidents in 2 years',
+      imageUrl: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop',
+      projectUrl: 'https://example-corporate-website.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const MaintenanceModificationProjects: React.FC = () => {
       description: 'Ongoing feature enhancements and bug fixes for custom web application.',
       tech: ['Feature Development', 'Bug Fixes', 'Performance Tuning'],
       timeline: 'Ongoing',
-      outcome: 'Added 20+ new features over 18 months'
+      outcome: 'Added 20+ new features over 18 months',
+      imageUrl: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-application-enhancement.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const MaintenanceModificationProjects: React.FC = () => {
       description: 'Migration from legacy system with ongoing support and modifications.',
       tech: ['System Migration', 'Data Migration', 'Ongoing Support'],
       timeline: 'Ongoing',
-      outcome: 'Successfully migrated 100K+ records with zero downtime'
+      outcome: 'Successfully migrated 100K+ records with zero downtime',
+      imageUrl: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2787&auto=format&fit=crop',
+      projectUrl: 'https://example-platform-migration.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const MaintenanceModificationProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const MaintenanceModificationProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

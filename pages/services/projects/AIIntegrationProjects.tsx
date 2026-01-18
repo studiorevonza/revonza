@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Bot, BrainCircuit, Cpu, Zap, ShieldCheck, TrendingUp } from 'lucide-react';
+import { Bot, BrainCircuit, Cpu, Zap, ShieldCheck, TrendingUp, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const AIIntegrationProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const AIIntegrationProjects: React.FC = () => {
       description: 'Custom AI chatbot for customer support with natural language processing and sentiment analysis.',
       tech: ['Python', 'TensorFlow', 'NLP', 'Dialogflow'],
       timeline: '2 months',
-      outcome: 'Reduced support tickets by 60%'
+      outcome: 'Reduced support tickets by 60%',
+      imageUrl: 'https://images.unsplash.com/photo-1553877522-4324936dbf38?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-ai-chatbot.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const AIIntegrationProjects: React.FC = () => {
       description: 'Machine learning system for sales forecasting and customer behavior prediction.',
       tech: ['Python', 'Scikit-learn', 'Pandas', 'AWS SageMaker'],
       timeline: '3 months',
-      outcome: 'Improved forecast accuracy by 40%'
+      outcome: 'Improved forecast accuracy by 40%',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-predictive-analytics.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const AIIntegrationProjects: React.FC = () => {
       description: 'Image recognition system for quality control in manufacturing processes.',
       tech: ['Python', 'OpenCV', 'PyTorch', 'CNN'],
       timeline: '4 months',
-      outcome: 'Reduced defects by 80%'
+      outcome: 'Reduced defects by 80%',
+      imageUrl: 'https://images.unsplash.com/photo-1618477388954-7859314a7e2ea?q=80&w=2574&auto=format&fit=crop',
+      projectUrl: 'https://example-computer-vision.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const AIIntegrationProjects: React.FC = () => {
       description: 'Custom voice interface for smart home automation and IoT device control.',
       tech: ['Python', 'Speech Recognition', 'TensorFlow', 'Raspberry Pi'],
       timeline: '2.5 months',
-      outcome: 'Improved user satisfaction by 70%'
+      outcome: 'Improved user satisfaction by 70%',
+      imageUrl: 'https://images.unsplash.com/photo-1574375927932-0ec65c1acfb3?q=80&w=2656&auto=format&fit=crop',
+      projectUrl: 'https://example-voice-assistant.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const AIIntegrationProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const AIIntegrationProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Palette, Brush, Layers, Type, Image, Scissors } from 'lucide-react';
+import { Palette, Brush, Layers, Type, Image, Scissors, ExternalLink } from 'lucide-react';
 import SEO from '../../../components/SEO';
 
 const GraphicDesignProjects: React.FC = () => {
@@ -11,7 +11,9 @@ const GraphicDesignProjects: React.FC = () => {
       description: 'Complete marketing material design for tech conference including brochures, flyers, and signage.',
       tech: ['Illustrator', 'InDesign', 'Brand Guidelines'],
       timeline: '4 weeks',
-      outcome: 'Generated 5000+ event registrations'
+      outcome: 'Generated 5000+ event registrations',
+      imageUrl: 'https://images.unsplash.com/photo-1546474428-9b4a0d0e7a3c?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-marketing-collateral.com'
     },
     {
       id: 2,
@@ -19,7 +21,9 @@ const GraphicDesignProjects: React.FC = () => {
       description: 'Comprehensive social media design package for lifestyle brand with templates and guidelines.',
       tech: ['Photoshop', 'Canva', 'Template Design'],
       timeline: '3 weeks',
-      outcome: 'Increased social engagement by 200%'
+      outcome: 'Increased social engagement by 200%',
+      imageUrl: 'https://images.unsplash.com/photo-1513635269975-596fe2610cec?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-social-media-package.com'
     },
     {
       id: 3,
@@ -27,7 +31,9 @@ const GraphicDesignProjects: React.FC = () => {
       description: 'Print advertising campaign for luxury hotel with magazine ads and promotional materials.',
       tech: ['InDesign', 'Photography', 'Print Design'],
       timeline: '2 weeks',
-      outcome: 'Booked 500+ rooms during campaign'
+      outcome: 'Booked 500+ rooms during campaign',
+      imageUrl: 'https://images.unsplash.com/photo-1560421683-2587f1591a30?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-print-campaign.com'
     },
     {
       id: 4,
@@ -35,7 +41,9 @@ const GraphicDesignProjects: React.FC = () => {
       description: 'Complete digital asset library for e-commerce brand with product photography and graphics.',
       tech: ['Photoshop', 'Figma', 'Asset Management'],
       timeline: '1 month',
-      outcome: 'Improved conversion rate by 35%'
+      outcome: 'Improved conversion rate by 35%',
+      imageUrl: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?q=80&w=2670&auto=format&fit=crop',
+      projectUrl: 'https://example-digital-asset-library.com'
     }
   ];
 
@@ -89,6 +97,29 @@ const GraphicDesignProjects: React.FC = () => {
                 <h3 className="text-2xl font-bold text-revonza-text">{project.title}</h3>
               </div>
               
+              <div className="relative mb-6 rounded-xl overflow-hidden border border-revonza-border">
+                <img 
+                  src={project.imageUrl} 
+                  alt={`${project.title} screenshot`} 
+                  className="w-full h-48 object-cover"
+                  onError={(e) => {
+                    const target = e.target as HTMLImageElement;
+                    target.src = 'https://placehold.co/600x400/e2e8f0/64748b?text=Project+Image';
+                  }}
+                />
+                <a 
+                  href={project.projectUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute inset-0 flex items-center justify-center bg-black/50 opacity-0 hover:opacity-100 transition-opacity duration-300"
+                >
+                  <div className="flex items-center gap-2 text-white bg-revonza-accent/90 px-4 py-2 rounded-lg">
+                    <ExternalLink size={16} />
+                    <span className="font-bold">Visit Project</span>
+                  </div>
+                </a>
+              </div>
+              
               <p className="text-revonza-textMuted mb-6 text-lg">
                 {project.description}
               </p>
@@ -116,9 +147,15 @@ const GraphicDesignProjects: React.FC = () => {
                 </div>
               </div>
               
-              <button className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent">
-                View Case Study
-              </button>
+              <a 
+                href={project.projectUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-3 bg-revonza-surface hover:bg-revonza-accent/10 rounded-xl text-revonza-text hover:text-revonza-accent font-bold transition-all border border-revonza-border hover:border-revonza-accent flex items-center justify-center gap-2"
+              >
+                Visit Project
+                <ExternalLink size={16} />
+              </a>
             </div>
           ))}
         </div>
