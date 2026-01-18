@@ -74,7 +74,7 @@ const Home: React.FC = () => {
 
         <div className="container mx-auto px-4 z-10 text-center relative">
           <div className="inline-block mb-8 animate-fade-in-up">
-            <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-revonza-surface/50 border border-revonza-border backdrop-blur-md hover:border-revonza-accent/50 transition-colors cursor-default shadow-lg">
+            <div className="flex items-center gap-2 px-5 py-2 rounded-full bg-revonza-surface/50 border border-revonza-border backdrop-blur-md hover:border-revonza-accent/50 transition-colors shadow-lg">
               <span className="relative flex h-2.5 w-2.5">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
@@ -104,12 +104,7 @@ const Home: React.FC = () => {
           </div>
         </div>
         
-        {/* Scroll Indicator */}
-        <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-50 hidden md:block">
-          <div className="w-6 h-10 border-2 border-revonza-text/30 rounded-full flex justify-center p-1">
-            <div className="w-1 h-2 bg-revonza-text rounded-full"></div>
-          </div>
-        </div>
+        
       </section>
 
       {/* Our Expertise Section - Horizontal Accordion */}

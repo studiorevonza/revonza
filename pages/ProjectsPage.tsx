@@ -28,7 +28,7 @@ const ProjectsPage: React.FC = () => {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
           <div>
             <span className="text-revonza-accent font-bold tracking-[0.2em] uppercase text-sm mb-4 block">Portfolio</span>
-            <h1 className="text-6xl md:text-8xl font-bold text-revonza-text mb-6">Selected Work</h1>
+            <h3 className="text-6xl md:text-8xl font-bold text-revonza-text mb-6">Selected Work</h3>
             <p className="text-xl text-revonza-textMuted max-w-lg font-light">
               A curated collection of our most impactful digital transformations.
             </p>

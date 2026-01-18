@@ -1,5 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { ThemeProvider } from './contexts/ThemeContext';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
@@ -41,6 +43,16 @@ const App: React.FC = () => {
             </Routes>
           </main>
           <Footer />
+          
+          {/* Global Floating WhatsApp Button */}
+          <a 
+            href="https://wa.me/918851619647" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="fixed bottom-8 right-8 w-16 h-16 bg-green-500 hover:bg-green-600 rounded-full flex items-center justify-center shadow-[0_0_20px_rgba(34,197,94,0.5)] hover:shadow-[0_0_30px_rgba(34,197,94,0.7)] transition-all duration-300 z-50 hover:scale-110"
+          >
+            <FontAwesomeIcon icon={faWhatsapp} size="2x" className="text-white" />
+          </a>
         </div>
       </Router>
     </ThemeProvider>

@@ -134,7 +134,7 @@ const PricingPage: React.FC = () => {
                 </div>
               )}
 
-              <h3 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h3>
+              <h6 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h6>
               <div className="mb-10">
                 <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
                 {(tier.price !== 'Custom Price' && !tier.price.includes('Free')) && <span className="text-gray-500 ml-2 font-small">/project</span>}
@@ -304,7 +304,7 @@ const PricingPage: React.FC = () => {
             <h2 className="text-4xl font-bold text-revonza-text mb-6">Ready to get started?</h2>
             <p className="text-xl text-revonza-textMuted mb-12 max-w-2xl mx-auto">Have specific requirements? We offer custom solutions tailored to your unique needs.</p>
             <Link to="/contact" className="inline-block px-10 py-4 bg-revonza-text text-revonza-base rounded-full font-bold text-lg hover:bg-revonza-accent hover:text-white hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
-              Get a Custom Quote
+              Contact Us
             </Link>
           </div>
         </div>

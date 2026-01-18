@@ -91,7 +91,7 @@ const ServicesPage: React.FC = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-revonza-text mb-6">Have a unique challenge?</h2>
               <p className="text-xl text-revonza-textMuted mb-12 font-light">We thrive on complexity. Let's discuss your specific requirements and build a custom roadmap tailored to your business goals.</p>
               <Link to="/contact" className="inline-block px-10 py-4 bg-revonza-text text-revonza-base rounded-full font-bold text-lg hover:bg-revonza-accent hover:text-white hover:scale-105 transition-all shadow-xl hover:shadow-[0_0_30px_rgba(139,92,246,0.5)]">
-                Get a Custom Quote
+                Contact Us
               </Link>
             </div>
           </div>
