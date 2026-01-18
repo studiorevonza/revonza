@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
           </div>
           
           <div className="relative animate-scale-in delay-200 flex justify-center lg:justify-end mt-12 lg:mt-0">
-             <div className="rounded-[2.5rem] overflow-hidden border border-revonza-border relative z-10 w-full max-w-[800px] h-auto shadow-[0_0_60px_rgba(0,0,0,0.1)] group">
+             <div className="rounded-[2.5rem] overflow-hidden relative z-10 w-full max-w-[800px] h-auto shadow-[0_0_60px_rgba(0,0,0,0.1)] group">
                 <div className="absolute inset-0 bg-revonza-accent/10 mix-blend-overlay z-20 group-hover:bg-transparent transition-all duration-700"></div>
                 <img 
                   src="/Aboutimage.png" 
@@ -51,7 +51,7 @@ const AboutPage: React.FC = () => {
            ].map((stat, i) => (
              <div 
                 key={i} 
-                className={`glass-panel p-8 rounded-[2rem] text-center animate-fade-in-up border border-revonza-border hover:border-revonza-accent/40 hover:bg-revonza-surface transition-all duration-300 hover:-translate-y-2 group`} 
+                className={`glass-panel p-8 rounded-[2rem] text-center animate-fade-in-up hover:bg-revonza-surface transition-all duration-300 hover:-translate-y-2 group`} 
                 style={{ animationDelay: `${i * 100}ms` }}
              >
                 <div className="mb-4 flex justify-center">
@@ -66,7 +66,7 @@ const AboutPage: React.FC = () => {
         {/* Philosophy - Enclosed Layout */}
         <div className="relative animate-fade-in-up delay-300">
            <div className="absolute inset-0 bg-gradient-to-r from-revonza-accent/10 to-transparent rounded-[3rem] blur-2xl opacity-50"></div>
-           <div className="glass-panel rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden border border-revonza-border">
+           <div className="glass-panel rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden">
                {/* Background detail */}
                <Quote className="absolute top-12 left-12 text-revonza-text/5 w-32 h-32 -rotate-12 transform -translate-x-1/2 -translate-y-1/2" />
                <Quote className="absolute bottom-12 right-12 text-revonza-text/5 w-32 h-32 rotate-12 scale-x-[-1] transform translate-x-1/2 translate-y-1/2" />
