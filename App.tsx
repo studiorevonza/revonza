@@ -13,6 +13,17 @@ import AboutPage from './pages/AboutPage';
 import ContactPage from './pages/ContactPage';
 import DetailedPricingPage from './pages/DetailedPricingPage';
 
+// Import individual service pages
+import WebsiteDevelopmentPage from './pages/services/WebsiteDevelopmentPage';
+import AIIntegrationPage from './pages/services/AIIntegrationPage';
+import LogoDesignPage from './pages/services/LogoDesignPage';
+import ThumbnailDesignPage from './pages/services/ThumbnailDesignPage';
+import ProductLaunchingPage from './pages/services/ProductLaunchingPage';
+import HostingSolutionsPage from './pages/services/HostingSolutionsPage';
+import GraphicDesignPage from './pages/services/GraphicDesignPage';
+import DesignBrandingPage from './pages/services/DesignBrandingPage';
+import MaintenanceModificationPage from './pages/services/MaintenanceModificationPage';
+
 // Scroll to top helper
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -40,6 +51,17 @@ const App: React.FC = () => {
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
+              
+              {/* Individual Service Routes */}
+              <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />
+              <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
+              <Route path="/services/logo-design" element={<LogoDesignPage />} />
+              <Route path="/services/thumbnail-design" element={<ThumbnailDesignPage />} />
+              <Route path="/services/product-launching" element={<ProductLaunchingPage />} />
+              <Route path="/services/hosting-solutions" element={<HostingSolutionsPage />} />
+              <Route path="/services/graphic-design" element={<GraphicDesignPage />} />
+              <Route path="/services/design-branding" element={<DesignBrandingPage />} />
+              <Route path="/services/maintenance-modification" element={<MaintenanceModificationPage />} />
             </Routes>
           </main>
           <Footer />

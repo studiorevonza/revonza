@@ -25,56 +25,56 @@ export const NAV_ITEMS: NavItem[] = [
 
 export const SERVICES: Service[] = [
   {
-    id: 'web',
+    id: 'website-development',
     title: 'Website Development',
     description: 'Forge a digital identity that commands attention. We engineer high-performance, pixel-perfect websites and web applications designed to convert visitors into loyal advocates. Speed, security, and scalability are built-in, not add-ons.',
     icon: 'MonitorSmartphone'
   },
   
   {
-    id: 'ai',
+    id: 'ai-integration',
     title: 'AI Integration',
     description: 'Future-proof your business with intelligent automation. We seamlessly integrate custom AI solutions—from smart chatbots to predictive analytics—that streamline operations and create personalized customer experiences.',
     icon: 'BrainCircuit'
   },
   {
-    id: 'logo',
+    id: 'logo-design',
     title: 'Logo Design',
     description: 'Distill your brand\'s essence into a timeless mark. We craft memorable visual identities that resonate deeply with your audience, ensuring your brand stands out in a crowded marketplace.',
     icon: 'Fingerprint'
   },
   {
-    id: 'thumbnail',
+    id: 'thumbnail-design',
     title: 'Thumbnail Design',
     description: 'Stop the scroll with high-impact visuals. Our scientifically designed thumbnails are optimized for click-through rates, turning casual browsers into engaged viewers across YouTube and social media platforms.',
     icon: 'Layers'
   },
   {
-    id: 'launching',
+    id: 'product-launching',
     title: 'Product Launching',
     description: 'Ignite your market entry with a strategic blast-off. We orchestrate comprehensive launch campaigns, managing everything from hype-building assets to go-to-market execution for maximum impact.',
     icon: 'Rocket'
   },
   {
-    id: 'hosting',
+    id: 'hosting-solutions',
     title: 'Hosting Solutions',
     description: 'Experience rock-solid reliability for your digital assets. Our managed hosting infrastructure delivers blazing fast speeds, 99.9% uptime, and military-grade security to keep your business online, always.',
     icon: 'DatabaseZap'
   },
   {
-    id: 'graphic',
+    id: 'graphic-design',
     title: 'Graphic Design',
     description: 'Tell your story through captivating visuals. From marketing collateral to social assets, we create cohesive, high-fidelity designs that elevate your brand narrative and engage your audience visually.',
     icon: 'Paintbrush'
   },
   {
-    id: 'branding',
+    id: 'design-branding',
     title: 'Design & Branding',
     description: 'Craft a cohesive visual identity that resonates with your audience. We develop comprehensive brand guidelines, color palettes, typography, and visual assets that communicate your unique value proposition.',
     icon: 'Palette'
   },
   {
-    id: 'maintenance',
+    id: 'maintenance-modification',
     title: 'Maintenance & Modification',
     description: 'Keep your digital assets running smoothly with our ongoing maintenance services. We provide updates, bug fixes, performance optimizations, and feature enhancements to ensure your investment continues to deliver value.',
     icon: 'Wrench'
