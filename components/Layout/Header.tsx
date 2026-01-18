@@ -44,7 +44,7 @@ const Header: React.FC = () => {
 
           {/* Desktop Nav & CTA Group */}
           <div className="hidden md:flex items-center gap-4">
-            <nav className="flex items-center space-x-1 bg-revonza-surface/50 px-2 py-1 rounded-full border border-revonza-border backdrop-blur-sm">
+            <nav className="flex items-center space-x-1 bg-revonza-surface/50 px-2 py-1 rounded-full backdrop-blur-sm">
               {NAV_ITEMS.map((item) => (
                 <NavLink
                   key={item.path}
@@ -102,7 +102,7 @@ const Header: React.FC = () => {
       </header>
 
       {/* Mobile Nav Overlay */}
-      <div className={`fixed inset-0 z-40 bg-revonza-base/95 backdrop-blur-xl transition-all duration-300 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`fixed inset-0 z-40 bg-revonza-base/95 transition-all duration-300 md:hidden ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
         <div className="flex flex-col items-center justify-center h-full space-y-8">
             {NAV_ITEMS.map((item) => (
               <NavLink
