@@ -50,9 +50,7 @@ const Footer: React.FC = () => {
               <li className="hover:text-revonza-accent transition-colors cursor-pointer hover:translate-x-1 transition-transform">
                 <a href="/services#web">Website Development</a>
               </li>
-              <li className="hover:text-revonza-accent transition-colors cursor-pointer hover:translate-x-1 transition-transform">
-                <a href="/services#seo">SEO Optimization</a>
-              </li>
+              
               <li className="hover:text-revonza-accent transition-colors cursor-pointer hover:translate-x-1 transition-transform">
                 <a href="/services#ai">AI Integration</a>
               </li>

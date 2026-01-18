@@ -5,14 +5,43 @@ const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
+    company: '',
     service: '',
+    budget: '',
+    timeline: '',
     message: ''
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    alert('Message sent successfully. We will be in touch.');
-    setFormData({ name: '', email: '', service: '', message: '' });
+    // Create a comprehensive message with all form data
+    const fullMessage = `
+New Inquiry from: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone}
+Company: ${formData.company || 'N/A'}
+Service Interested: ${formData.service}
+Budget Range: ${formData.budget || 'Not specified'}
+Timeline: ${formData.timeline || 'Flexible'}
+Priority: ${formData.priority || 'Standard'}
+
+Message:
+${formData.message}
+    `;
+    
+    console.log('Form submitted:', formData);
+    alert(`Thank you for your inquiry, ${formData.name}! We'll contact you soon at ${formData.email} or ${formData.phone}.`);
+    setFormData({ 
+      name: '', 
+      email: '', 
+      phone: '', 
+      company: '', 
+      service: '', 
+      budget: '', 
+      timeline: '', 
+      message: '' 
+    });
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -91,73 +120,147 @@ const ContactPage: React.FC = () => {
                 <form onSubmit={handleSubmit} className="relative z-10 space-y-6">
                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div className="group">
-                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Full Name</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Full Name *</label>
                         <input 
                            type="text" 
                            name="name"
                            value={formData.name}
                            onChange={handleChange}
                            required
-                           className="w-full bg-revonza-base/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-gray-400 focus:outline-none focus:border-revonza-accent focus:bg-revonza-base focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
-                           placeholder="Your Name"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           placeholder="Your Full Name"
                         />
                       </div>
                       <div className="group">
-                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Email Address</label>
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Email Address *</label>
                         <input 
                            type="email" 
                            name="email"
                            value={formData.email}
                            onChange={handleChange}
                            required
-                           className="w-full bg-revonza-base/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-gray-400 focus:outline-none focus:border-revonza-accent focus:bg-revonza-base focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
-                           placeholder="Your Email Address"
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           placeholder="your@email.com"
+                        />
+                      </div>
+                   </div>
+                   
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="group">
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Phone Number *</label>
+                        <input 
+                           type="tel" 
+                           name="phone"
+                           value={formData.phone}
+                           onChange={handleChange}
+                           required
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           placeholder="+91 XXXXXXXXXX"
+                        />
+                      </div>
+                      <div className="group">
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Company/Organization</label>
+                        <input 
+                           type="text" 
+                           name="company"
+                           value={formData.company}
+                           onChange={handleChange}
+                           className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300"
+                           placeholder="Your Company Name"
                         />
                       </div>
                    </div>
 
                    <div className="group">
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Interest</label>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Service Interest *</label>
                       <div className="relative">
                         <select
                           name="service"
                           value={formData.service}
                           onChange={handleChange}
-                          className="w-full bg-revonza-base/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-base transition-all duration-300"
+                          required
+                          className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
                         >
-                          <option value="" className="text-revonza-text bg-revonza-base">Select a topic...</option>
-                          <option value="web" className="text-revonza-text bg-revonza-base">Website Development</option>
+                          <option value="" className="text-revonza-text bg-revonza-base">Select Service...</option>
+                          <option value="web-development" className="text-revonza-text bg-revonza-base">Website Development</option>
+                          <option value="web-design" className="text-revonza-text bg-revonza-base">Web Design & UI/UX</option>
                           <option value="seo" className="text-revonza-text bg-revonza-base">SEO Optimization</option>
-                          <option value="ai" className="text-revonza-text bg-revonza-base">AI Integration</option>
-                          <option value="logo" className="text-revonza-text bg-revonza-base">Logo Design</option>
-                          <option value="thumbnail" className="text-revonza-text bg-revonza-base">Thumbnail Design</option>
-                          <option value="graphic" className="text-revonza-text bg-revonza-base">Graphic Design</option>
-                          <option value="branding" className="text-revonza-text bg-revonza-base">Design & Branding</option>
-                          <option value="maintenance" className="text-revonza-text bg-revonza-base">Maintenance & Modification</option>
-                          <option value="other" className="text-revonza-text bg-revonza-base">Other</option>
+                          <option value="ai-integration" className="text-revonza-text bg-revonza-base">AI Integration</option>
+                          <option value="logo-design" className="text-revonza-text bg-revonza-base">Logo Design</option>
+                          <option value="branding" className="text-revonza-text bg-revonza-base">Brand Identity & Design</option>
+                          <option value="graphic-design" className="text-revonza-text bg-revonza-base">Graphic Design</option>
+                          <option value="thumbnail-design" className="text-revonza-text bg-revonza-base">Thumbnail Design</option>
+                          <option value="maintenance" className="text-revonza-text bg-revonza-base">Website Maintenance</option>
+                          <option value="consultation" className="text-revonza-text bg-revonza-base">Consultation/Strategy</option>
+                          <option value="other" className="text-revonza-text bg-revonza-base">Other Services</option>
                         </select>
                         <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
                       </div>
                    </div>
-
+                   
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                      <div className="group">
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Budget Range</label>
+                        <div className="relative">
+                          <select
+                            name="budget"
+                            value={formData.budget}
+                            onChange={handleChange}
+                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                          >
+                            <option value="" className="text-revonza-text bg-revonza-base">Select Budget Range</option>
+                            <option value="5000-20000" className="text-revonza-text bg-revonza-base">₹5,000 - ₹20,000</option>
+                            <option value="20000-50000" className="text-revonza-text bg-revonza-base">₹20,000 - ₹50,000</option>
+                            <option value="50000-100000" className="text-revonza-text bg-revonza-base">₹50,000 - ₹1,00,000</option>
+                            <option value="100000+" className="text-revonza-text bg-revonza-base">₹1,00,000+</option>
+                            <option value="not-sure" className="text-revonza-text bg-revonza-base">Not Sure Yet</option>
+                          </select>
+                          <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
+                        </div>
+                      </div>
+                      <div className="group">
+                        <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Timeline</label>
+                        <div className="relative">
+                          <select
+                            name="timeline"
+                            value={formData.timeline}
+                            onChange={handleChange}
+                            className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current appearance-none cursor-pointer focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface transition-all duration-300"
+                          >
+                            <option value="" className="text-revonza-text bg-revonza-base">Select Timeline</option>
+                            <option value="urgent" className="text-revonza-text bg-revonza-base">Urgent (1-2 weeks)</option>
+                            <option value="short" className="text-revonza-text bg-revonza-base">Short Term (1-3 months)</option>
+                            <option value="medium" className="text-revonza-text bg-revonza-base">Medium Term (3-6 months)</option>
+                            <option value="long" className="text-revonza-text bg-revonza-base">Long Term (6+ months)</option>
+                            <option value="flexible" className="text-revonza-text bg-revonza-base">Flexible Timeline</option>
+                          </select>
+                          <ArrowRight className="absolute right-6 top-1/2 -translate-y-1/2 text-gray-500 rotate-90 pointer-events-none" size={18} />
+                        </div>
+                      </div>
+                   </div>
+                   
                    <div className="group">
-                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Message</label>
+                      <label className="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2 ml-4">Project Details *</label>
                       <textarea 
                          name="message"
                          value={formData.message}
                          onChange={handleChange}
                          required
-                         rows={4}
-                         className="w-full bg-revonza-base/50 border border-revonza-border rounded-2xl px-6 py-4 text-revonza-text placeholder-gray-400 focus:outline-none focus:border-revonza-accent focus:bg-revonza-base focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300 resize-none"
-                         placeholder="How can we help?"
+                         rows={5}
+                         className="w-full bg-revonza-surface/50 border border-revonza-border rounded-2xl px-6 py-4 text-current placeholder-revonza-textMuted focus:outline-none focus:border-revonza-accent focus:bg-revonza-surface focus:shadow-[0_0_20px_rgba(139,92,246,0.2)] transition-all duration-300 resize-none"
+                         placeholder="Please share details about your project, requirements, goals, and any specific features you're looking for..."
                       />
+                   </div>
+                   
+                   <div className="text-xs text-revonza-textMuted italic">
+                     * Required fields. We'll contact you within 24 hours to discuss your project.
                    </div>
 
                    <button 
                       type="submit" 
                       className="w-full py-5 bg-revonza-text text-revonza-base rounded-2xl font-bold text-lg uppercase tracking-wider hover:bg-revonza-accent hover:text-white hover:shadow-[0_0_30px_rgba(139,92,246,0.5)] hover:scale-[1.02] active:scale-[0.98] transition-all duration-300 flex items-center justify-center gap-3"
                    >
-                      Send Message <Send size={20} />
+                      Submit Inquiry <Send size={20} />
                    </button>
                 </form>
              </div>
