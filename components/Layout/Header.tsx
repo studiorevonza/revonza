@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Sun, Moon } from 'lucide-react';
 import { NAV_ITEMS, LOGO_WHITE_URL, LOGO_BLACK_URL, BRAND_NAME } from '../../constants';
-import { useTheme } from '../../App';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);

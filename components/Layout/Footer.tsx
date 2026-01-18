@@ -1,7 +1,7 @@
 import React from 'react';
 import { BRAND_NAME } from '../../constants';
 import { Instagram, Twitter, Linkedin, Mail, Phone } from 'lucide-react';
-import { useTheme } from '../../App';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Footer: React.FC = () => {
   const { theme } = useTheme();
