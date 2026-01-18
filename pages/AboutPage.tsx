@@ -27,7 +27,7 @@ const AboutPage: React.FC = () => {
           </div>
           
           <div className="relative animate-scale-in delay-200 flex justify-center lg:justify-end mt-12 lg:mt-0">
-             <div className="rounded-[2.5rem] overflow-hidden relative z-10 w-full max-w-[800px] h-auto shadow-[0_0_60px_rgba(0,0,0,0.1)] group">
+             <div className="rounded-[2.5rem] overflow-hidden relative z-10 w-full max-w-[800px] h-auto group">
                 <div className="absolute inset-0 bg-revonza-accent/10 mix-blend-overlay z-20 group-hover:bg-transparent transition-all duration-700"></div>
                 <img 
                   src="/Aboutimage.png" 
@@ -42,9 +42,9 @@ const AboutPage: React.FC = () => {
         {/* Stats - Refined Glass Panels */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-32">
            {[
-             { val: '3+', label: 'Years Experience', icon: Clock },
-             { val: '50+', label: 'Projects Shipped', icon: Award },
-             { val: '12', label: 'Global Partners', icon: Globe },
+             { val: '2+', label: 'Years Experience', icon: Clock },
+             { val: '10+', label: 'Projects Shipped', icon: Award },
+             { val: '5', label: 'Global Partners', icon: Globe },
              { val: '24/7', label: 'Support', icon: Users }
            ].map((stat, i) => (
              <div 

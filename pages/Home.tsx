@@ -322,7 +322,7 @@ const Home: React.FC = () => {
             {TESTIMONIALS.map((testimonial, index) => (
               <div 
                 key={testimonial.id} 
-                className="glass-panel p-10 rounded-[2rem] relative animate-fade-in-up hover:-translate-y-3 transition-transform duration-500 border border-revonza-border"
+                className="glass-panel p-10 rounded-[2rem] relative animate-fade-in-up hover:-translate-y-3 transition-transform duration-500"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className="flex items-center gap-1.5 mb-8 text-yellow-500">

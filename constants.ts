@@ -178,26 +178,26 @@ export const PRICING: PricingTier[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: 't1',
-    name: 'Sarah Jenkins',
-    role: 'CEO',
-    company: 'Nexus FinTech',
-    content: 'Revonza Studio transformed our digital presence. The AI integration they built has saved us hundreds of hours in customer support.',
+    name: 'Rajesh Sharma',
+    role: 'Director',
+    company: 'TechMinds Pvt Ltd',
+    content: 'Outstanding work! The team delivered our e-commerce platform ahead of schedule with exceptional quality. The customer experience has improved dramatically.',
     avatar: 'https://i.pravatar.cc/150?u=a042581f4e29026024d'
   },
   {
     id: 't2',
-    name: 'Michael Chen',
-    role: 'Marketing Director',
-    company: 'Vivid Stream',
-    content: 'The new branding is absolutely stunning. They understood our vision perfectly and delivered a logo that truly stands out.',
+    name: 'Priya Khanna',
+    role: 'CTO',
+    company: 'StartupHub India',
+    content: 'The mobile app they developed for our startup has received excellent user feedback. Their attention to detail and technical expertise is unmatched.',
     avatar: 'https://i.pravatar.cc/150?u=a04258a2462d826712d'
   },
   {
     id: 't3',
-    name: 'Elena Rodriguez',
-    role: 'Founder',
-    company: 'EcoSphere',
-    content: 'Professional, fast, and incredibly talented. The SEO strategies they implemented doubled our organic traffic in just three months.',
+    name: 'Anil Verma',
+    role: 'Owner',
+    company: 'DigitalRetail Solutions',
+    content: 'Their SEO expertise helped our online business grow 3x in just 6 months. The ROI has been incredible. Highly recommended!',
     avatar: 'https://i.pravatar.cc/150?u=a04258114e29026302d'
   }
 ];
