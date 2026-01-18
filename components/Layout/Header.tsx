@@ -102,8 +102,8 @@ const Header: React.FC = () => {
       </header>
 
       {/* Mobile Nav Overlay */}
-      <div className={`fixed inset-0 z-40 bg-revonza-base/95 transition-all duration-300 md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
-        <div className="flex flex-col items-center justify-center h-full space-y-8">
+      <div className={`fixed inset-0 z-40 bg-revonza-base/95 backdrop-blur-md transition-all duration-300 md:hidden ${isMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'}`}>
+        <div className="flex flex-col items-center justify-center h-full space-y-8 px-4">
             {NAV_ITEMS.map((item) => (
               <NavLink
                 key={item.path}
