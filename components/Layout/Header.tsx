@@ -108,7 +108,9 @@ const Header: React.FC = () => {
               <NavLink
                 key={item.path}
                 to={item.path}
-                onClick={() => setIsOpen(false)}
+                onClick={() => {
+                  setIsOpen(false);
+                }}
                 className={({ isActive }) =>
                   `text-3xl font-bold transition-colors ${
                     isActive
