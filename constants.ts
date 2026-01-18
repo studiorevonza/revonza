@@ -30,12 +30,7 @@ export const SERVICES: Service[] = [
     description: 'Forge a digital identity that commands attention. We engineer high-performance, pixel-perfect websites and web applications designed to convert visitors into loyal advocates. Speed, security, and scalability are built-in, not add-ons.',
     icon: 'MonitorSmartphone'
   },
-  {
-    id: 'seo',
-    title: 'SEO Optimization',
-    description: 'Dominate search results and capture your target audience. Our data-driven SEO strategies go beyond keywords, optimizing your technical infrastructure and content to drive sustainable, organic growth and maximum visibility.',
-    icon: 'ScanSearch'
-  },
+  
   {
     id: 'ai',
     title: 'AI Integration',
@@ -111,14 +106,7 @@ export const PROJECTS: Project[] = [
     description: 'A complete visual overhaul for a streaming service, including logo redesign, social media assets, and YouTube thumbnails.',
     tags: ['graphic', 'logo', 'thumbnail', 'branding']
   },
-  {
-    id: '4',
-    title: 'Urban Outfitters Launch',
-    category: 'SEO & Marketing',
-    image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2670&auto=format&fit=crop',
-    description: 'Strategic product launch campaign for a fashion retailer, focusing on organic search growth and high-conversion landing pages.',
-    tags: ['launching', 'seo', 'web']
-  },
+ 
   {
     id: '5',
     title: 'CloudSafe Hosting',

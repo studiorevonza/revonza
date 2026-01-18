@@ -61,8 +61,7 @@ const Footer: React.FC = () => {
               <li className="hover:text-revonza-accent transition-colors cursor-pointer">About Us</li>
               <li className="hover:text-revonza-accent transition-colors cursor-pointer">Projects</li>
               <li className="hover:text-revonza-accent transition-colors cursor-pointer">Contact</li>
-              <li className="hover:text-revonza-accent transition-colors cursor-pointer">Privacy Policy</li>
-            </ul>
+              </ul>
           </div>
         </div>
         
