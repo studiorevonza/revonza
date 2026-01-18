@@ -137,7 +137,7 @@ const PricingPage: React.FC = () => {
               <h6 className={`text-2xl font-bold mb-6 ${tier.recommended ? 'text-revonza-accent' : 'text-revonza-text'}`}>{tier.name}</h6>
               <div className="mb-10">
                 <span className="text-6xl font-bold text-revonza-text tracking-tighter">{convertPrice(tier.price)}</span>
-                {(tier.price !== 'Custom Price' && !tier.price.includes('Free')) && <span className="text-gray-500 ml-2 font-small">/project</span>}
+                {(tier.price !== 'Custom Price' && !tier.price.includes('Free')) && <span className="text-gray-500 ml-2 font-small"></span>}
               </div>
 
               <div className={`h-[1px] w-full mb-10 ${tier.recommended ? 'bg-gradient-to-r from-revonza-accent/50 to-transparent' : 'bg-revonza-border'}`}></div>
