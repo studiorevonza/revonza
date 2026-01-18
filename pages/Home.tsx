@@ -8,6 +8,7 @@ const Home: React.FC = () => {
   const featuredServices = SERVICES.slice(0, 3);
   
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [zoomedImage, setZoomedImage] = useState<{src: string, alt: string} | null>(null);
   
   const carouselImages = [
     { src: '/feedback/cl1.png', alt: 'Client Feedback 1' },
@@ -382,7 +383,10 @@ const Home: React.FC = () => {
                       <img 
                         src={image.src}
                         alt={image.alt}
-                        className="max-h-64 object-contain"
+                        className="max-h-64 object-contain cursor-zoom-in hover:opacity-90 transition-opacity"
+                        onClick={() => setZoomedImage(image)}
+                        onMouseEnter={() => setZoomedImage(image)}
+                        onMouseLeave={() => setZoomedImage(null)}
                       />
                     </div>
                   </div>
@@ -420,6 +424,32 @@ const Home: React.FC = () => {
           </div>
         </div>
       </section>
+      
+      {/* Zoom Overlay */}
+      {zoomedImage && (
+        <div 
+          className="fixed inset-0 bg-black/90 z-[9999] flex items-center justify-center p-4"
+          onClick={() => setZoomedImage(null)}
+        >
+          <div className="relative max-w-4xl max-h-[90vh]">
+            <img 
+              src={zoomedImage.src}
+              alt={zoomedImage.alt}
+              className="max-w-full max-h-[90vh] object-contain"
+            />
+            <button 
+              className="absolute top-4 right-4 text-white bg-black/50 rounded-full p-2 hover:bg-black/75"
+              onClick={(e) => {
+                e.stopPropagation();
+                setZoomedImage(null);
+              }}
+              aria-label="Close zoom"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      )}
     </div>
     </>
   );
