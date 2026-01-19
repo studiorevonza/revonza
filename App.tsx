@@ -25,15 +25,7 @@ import DesignBrandingPage from './pages/services/DesignBrandingPage';
 import MaintenanceModificationPage from './pages/services/MaintenanceModificationPage';
 
 // Import individual service project pages
-import WebsiteDevelopmentProjects from './pages/services/projects/WebsiteDevelopmentProjects';
-import AIIntegrationProjects from './pages/services/projects/AIIntegrationProjects';
-import LogoDesignProjects from './pages/services/projects/LogoDesignProjects';
-import ThumbnailDesignProjects from './pages/services/projects/ThumbnailDesignProjects';
-import ProductLaunchingProjects from './pages/services/projects/ProductLaunchingProjects';
-import HostingSolutionsProjects from './pages/services/projects/HostingSolutionsProjects';
-import GraphicDesignProjects from './pages/services/projects/GraphicDesignProjects';
-import DesignBrandingProjects from './pages/services/projects/DesignBrandingProjects';
-import MaintenanceModificationProjects from './pages/services/projects/MaintenanceModificationProjects';
+
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -63,16 +55,7 @@ const App: React.FC = () => {
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/detailed-pricing" element={<DetailedPricingPage />} />
               
-              {/* Individual Service Project Routes (More Specific First) */}
-              <Route path="/services/website-development/projects" element={<WebsiteDevelopmentProjects />} />
-              <Route path="/services/ai-integration/projects" element={<AIIntegrationProjects />} />
-              <Route path="/services/logo-design/projects" element={<LogoDesignProjects />} />
-              <Route path="/services/thumbnail-design/projects" element={<ThumbnailDesignProjects />} />
-              <Route path="/services/product-launching/projects" element={<ProductLaunchingProjects />} />
-              <Route path="/services/hosting-solutions/projects" element={<HostingSolutionsProjects />} />
-              <Route path="/services/graphic-design/projects" element={<GraphicDesignProjects />} />
-              <Route path="/services/design-branding/projects" element={<DesignBrandingProjects />} />
-              <Route path="/services/maintenance-modification/projects" element={<MaintenanceModificationProjects />} />
+
               
               {/* Individual Service Routes */}
               <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />

@@ -1,22 +1,43 @@
 User-agent: *
 Allow: /
+Allow: /about
+Allow: /services
+Allow: /projects
+Allow: /pricing
+Allow: /contact
+Allow: /detailed-pricing
+
+# Allow service pages
+Allow: /services/website-development
+Allow: /services/ai-integration
+Allow: /services/logo-design
+Allow: /services/thumbnail-design
+Allow: /services/product-launching
+Allow: /services/hosting-solutions
+Allow: /services/graphic-design
+Allow: /services/design-branding
+Allow: /services/maintenance-modification
+
+# Allow service project pages
+Allow: /services/website-development/projects
+Allow: /services/ai-integration/projects
+Allow: /services/logo-design/projects
+Allow: /services/thumbnail-design/projects
+Allow: /services/product-launching/projects
+Allow: /services/hosting-solutions/projects
+Allow: /services/graphic-design/projects
+Allow: /services/design-branding/projects
+Allow: /services/maintenance-modification/projects
+
+# Disallow private areas
+Disallow: /admin/
+Disallow: /private/
 
 # Sitemap
 Sitemap: https://revonzastudio.com/sitemap.xml
 
-# Specific bots
-User-agent: Googlebot
-Allow: /
+# Crawl-delay for slower bots
+Crawl-delay: 1
 
-User-agent: Bingbot
-Allow: /
-
-User-agent: Slurp
-Allow: /
-
-# Disallow admin or private areas if any
-# Disallow: /admin/
-# Disallow: /private/
-
-# Crawl delay
-Crawl-delay: 10
+# Host directive
+Host: https://revonzastudio.com

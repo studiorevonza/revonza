@@ -1,8 +1,53 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Quote, Users, Globe, Award, Clock } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const AboutPage: React.FC = () => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
   return (
+    <>
+      <SEO
+        pageSEO={{
+          title: 'About Revonza Studio - Leading Web Development Agency in India',
+          description: 'Learn about Revonza Studio, the leading web development and SEO agency in India. Our mission is to engineer digital excellence by combining art and algorithms for superior results.',
+          keywords: [
+            'about Revonza Studio',
+            'web development company India',
+            'digital agency India',
+            'web development team',
+            'SEO company India',
+            'digital marketing agency',
+            'web design company',
+            'software development company',
+            'IT services India',
+            'tech agency India'
+          ],
+          canonical: 'https://revonzastudio.com/about',
+          ogImage: 'https://revonzastudio.com/og-about.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'AboutPage',
+            'name': 'About Revonza Studio',
+            'description': 'Learn about Revonza Studio, the leading web development and SEO agency in India. Our mission is to engineer digital excellence by combining art and algorithms for superior results.',
+            'breadcrumb': {
+              '@type': 'BreadcrumbList',
+              'itemListElement': [{
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://revonzastudio.com/'
+              }, {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'About',
+                'item': 'https://revonzastudio.com/about'
+              }]
+            }
+          }
+        }}
+      />
     <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         
@@ -29,11 +74,29 @@ const AboutPage: React.FC = () => {
           <div className="relative animate-scale-in delay-200 flex justify-center lg:justify-end mt-12 lg:mt-0">
              <div className="rounded-[2.5rem] overflow-hidden relative z-10 w-full max-w-[800px] h-auto group">
                 <div className="absolute inset-0 bg-revonza-accent/10 mix-blend-overlay z-20 group-hover:bg-transparent transition-all duration-700"></div>
-                <img 
-                  src="/Aboutimage.png" 
-                  alt="Team collaboration" 
-                  className="w-full h-auto object-contain grayscale group-hover:grayscale-0 transition-all duration-1000 transform group-hover:scale-105"
-                />
+                
+                {/* Loading placeholder */}
+                {!imageLoaded && (
+                  <div className="absolute inset-0 bg-gradient-to-br from-revonza-surface to-revonza-base animate-pulse rounded-[2.5rem] flex items-center justify-center z-10">
+                    <div className="text-revonza-textMuted text-lg">Loading...</div>
+                  </div>
+                )}
+                
+                <picture>
+                  <source 
+                    srcSet="/Aboutimage.webp" 
+                    type="image/webp" 
+                  />
+                  <img 
+                    src="/Aboutimage.png" 
+                    alt="Team collaboration" 
+                    loading="lazy"
+                    width="800"
+                    height="600"
+                    onLoad={() => setImageLoaded(true)}
+                    className={`w-full h-auto object-contain transition-all duration-1000 ${imageLoaded ? 'grayscale group-hover:grayscale-0 transform group-hover:scale-105' : 'opacity-0'}`}
+                  />
+                </picture>
              </div>
              {/* Decorative Elements */}
              </div>
@@ -139,7 +202,8 @@ const AboutPage: React.FC = () => {
 
       </div>
     </div>
-  );
+      </>
+    );
 };
 
 export default AboutPage;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PROJECTS, SERVICES } from '../constants';
 import { ExternalLink, Check, X } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ProjectsPage: React.FC = () => {
   const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
@@ -22,7 +23,56 @@ const ProjectsPage: React.FC = () => {
       );
 
   return (
-    <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
+    <>
+      <SEO
+        pageSEO={{
+          title: 'Web Development Portfolio | Digital Projects & Case Studies India',
+          description: 'Explore our portfolio of successful web development and digital marketing projects in India. See case studies of our custom website development, SEO optimization, and branding solutions.',
+          keywords: [
+            'web development portfolio',
+            'digital marketing projects',
+            'website development case studies',
+            'web design portfolio India',
+            'SEO project examples',
+            'custom website development projects',
+            'digital agency portfolio',
+            'web development showcase',
+            'Indian web development projects',
+            'successful website projects'
+          ],
+          canonical: 'https://revonzastudio.com/projects',
+          ogImage: 'https://revonzastudio.com/og-projects.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'CollectionPage',
+            'name': 'Web Development Portfolio',
+            'description': 'Explore our portfolio of successful web development and digital marketing projects in India.',
+            'breadcrumb': {
+              '@type': 'BreadcrumbList',
+              'itemListElement': [{
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://revonzastudio.com/'
+              }, {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Projects',
+                'item': 'https://revonzastudio.com/projects'
+              }]
+            },
+            'mainEntity': PROJECTS.map((project, index) => ({
+              '@type': 'CreativeWork',
+              'name': project.title,
+              'description': project.description,
+              'genre': project.category,
+              'about': project.tags
+            }))
+          }
+        }}
+      />
+      <div className="min-h-screen pt-36 pb-32 bg-revonza-base transition-colors duration-300">
       <div className="container mx-auto px-4">
         
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 animate-fade-in-up">
@@ -118,7 +168,8 @@ const ProjectsPage: React.FC = () => {
         )}
       </div>
     </div>
-  );
+      </>
+    );
 };
 
 export default ProjectsPage;

@@ -24,12 +24,15 @@ export interface PageSEO {
 // Global SEO Configuration
 export const GLOBAL_SEO: SEOConfig = {
   siteUrl: 'https://revonzastudio.com',
-  title: 'Revonza Studio - Digital Excellence Engineering',
-  description: 'We engineer digital excellence. Turning complex ideas into intelligent, beautiful experiences for the modern web.',
+  title: 'Revonza Studio - Top Web Development & SEO Agency India | Custom Website Design Services',
+  description: 'Leading web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services. Boost your online presence today!',
   keywords: [
-    'web development', 'SEO optimization', 'AI integration', 'logo design',
-    'digital marketing', 'branding', 'website design', 'software development',
-    'react development', 'full stack development', 'digital agency'
+    'web development agency India', 'web design services', 'SEO company India', 'custom website development',
+    'AI integration services', 'digital marketing agency', 'logo design services', 'branding agency',
+    'React development', 'full stack development', 'e-commerce development', 'mobile app development',
+    'SEO optimization services', 'digital transformation', 'web application development', 'UI UX design',
+    'website maintenance services', 'online presence solutions', 'business website development',
+    'top web developers', 'professional web designers', 'affordable website design', 'enterprise web solutions'
   ],
   author: 'Revonza Studio',
   locale: 'en_US',
@@ -42,12 +45,44 @@ export const DEFAULT_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: 'Revonza Studio',
+  alternateName: ['Revonza Studio', 'Revonza Development', 'Revonza Digital Agency'],
   url: GLOBAL_SEO.siteUrl,
   logo: `${GLOBAL_SEO.siteUrl}/logo.png`,
+  image: `${GLOBAL_SEO.siteUrl}/og-home.jpg`,
+  description: GLOBAL_SEO.description,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: 'India',
+    addressCountry: 'IN'
+  },
+  contactPoint: [{
+    '@type': 'ContactPoint',
+    telephone: '+91-8851619647',
+    contactType: 'customer service',
+    areaServed: 'IN',
+    availableLanguage: 'en'
+  }],
+  foundingDate: '2024',
+  founder: {
+    '@type': 'Person',
+    name: 'Revonza Studio Team'
+  },
   sameAs: [
     'https://www.linkedin.com/company/revonza-studio',
     'https://twitter.com/revonzastudio',
-    'https://instagram.com/revonzastudio'
+    'https://instagram.com/revonzastudio',
+    'https://www.facebook.com/revonzastudio',
+    'https://www.youtube.com/@revonzastudio'
+  ],
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.9',
+    reviewCount: '50+'
+  },
+  award: [
+    'Top Web Development Agency India',
+    'Best SEO Services Provider',
+    'Leading Digital Marketing Agency'
   ]
 };
 

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Mail, Phone, ArrowRight, Send } from 'lucide-react';
+import SEO from '../components/SEO';
 
 const ContactPage: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -48,7 +49,56 @@ const ContactPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pt-32 pb-20 bg-revonza-base flex flex-col justify-center relative overflow-hidden transition-colors duration-300">
+    <>
+      <SEO
+        pageSEO={{
+          title: 'Contact Web Development Agency India | Revonza Studio',
+          description: 'Get in touch with Revonza Studio, the leading web development and SEO agency in India. Discuss your project requirements with our experts.',
+          keywords: [
+            'contact web development agency',
+            'web design company India',
+            'SEO agency contact',
+            'digital marketing contact',
+            'website development contact',
+            'hire web developer India',
+            'contact web designer',
+            'IT services contact India',
+            'software development contact',
+            'digital agency India contact'
+          ],
+          canonical: 'https://revonzastudio.com/contact',
+          ogImage: 'https://revonzastudio.com/og-contact.jpg',
+          ogType: 'website',
+          structuredData: {
+            '@context': 'https://schema.org',
+            '@type': 'ContactPage',
+            'name': 'Contact Revonza Studio',
+            'description': 'Get in touch with Revonza Studio, the leading web development and SEO agency in India. Discuss your project requirements with our experts.',
+            'breadcrumb': {
+              '@type': 'BreadcrumbList',
+              'itemListElement': [{
+                '@type': 'ListItem',
+                'position': 1,
+                'name': 'Home',
+                'item': 'https://revonzastudio.com/'
+              }, {
+                '@type': 'ListItem',
+                'position': 2,
+                'name': 'Contact',
+                'item': 'https://revonzastudio.com/contact'
+              }]
+            },
+            'contactPoint': {
+              '@type': 'ContactPoint',
+              'telephone': '+91-8851619647',
+              'contactType': 'customer service',
+              'areaServed': 'IN',
+              'availableLanguage': 'en'
+            }
+          }
+        }}
+      />
+      <div className="min-h-screen pt-32 pb-20 bg-revonza-base flex flex-col justify-center relative overflow-hidden transition-colors duration-300">
       
       {/* Background Ambience */}
       <div className="absolute top-0 left-0 w-full h-[600px] bg-revonza-accent/10 blur-[150px] pointer-events-none"></div>
@@ -283,7 +333,8 @@ const ContactPage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+      </>
+    );
 };
 
 export default ContactPage;

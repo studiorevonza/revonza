@@ -2,7 +2,6 @@ import React from 'react';
 import { SERVICES } from '../constants';
 import * as LucideIcons from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { ArrowUpRight } from 'lucide-react';
 import SEO from '../components/SEO';
 
 const ServicesPage: React.FC = () => {
@@ -63,17 +62,14 @@ const ServicesPage: React.FC = () => {
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div>
-                    <div className="flex justify-between items-start mb-10">
+                    <div className="flex justify-center mb-10">
                       <div className="w-24 h-24 bg-revonza-surface rounded-3xl flex items-center justify-center text-revonza-text group-hover:text-revonza-accent group-hover:scale-110 group-hover:bg-revonza-surface/80 transition-all duration-500 border border-revonza-border shadow-lg group-hover:shadow-[0_0_20px_rgba(139,92,246,0.4)]">
                         <IconComponent size={44} strokeWidth={1.25} />
                       </div>
-                      <Link to={`/services/${service.id}`} className="w-12 h-12 rounded-full border border-revonza-border flex items-center justify-center text-gray-500 group-hover:bg-revonza-accent group-hover:border-revonza-accent group-hover:text-white transition-all transform group-hover:rotate-45 group-hover:shadow-[0_0_15px_rgba(139,92,246,0.6)]">
-                        <ArrowUpRight size={22} />
-                      </Link>
                     </div>
                     
-                    <h3 className="text-2xl font-bold text-revonza-text mb-5 group-hover:text-revonza-accent transition-colors drop-shadow-sm">{service.title}</h3>
-                    <p className="text-revonza-textMuted text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity">
+                    <h3 className="text-2xl font-bold text-revonza-text mb-5 group-hover:text-revonza-accent transition-colors drop-shadow-sm text-center">{service.title}</h3>
+                    <p className="text-revonza-textMuted text-base leading-relaxed opacity-80 group-hover:opacity-100 transition-opacity text-center">
                       {service.description}
                     </p>
                   </div>

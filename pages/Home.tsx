@@ -70,17 +70,32 @@ const Home: React.FC = () => {
     <>
       <SEO
         pageSEO={{
-          title: 'Web Development & SEO Studio for Startups | Revonza Studio',
-          description: 'Revonza Studio offers web development, SEO & AI solutions for modern businesses. Build faster. Rank smarter. We specialize in affordable branding agency services and website development for small business.',
+          title: 'Web Development & SEO Agency India | Custom Website Design Services',
+          description: 'Top web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services. Boost your online presence today!',
           keywords: [
-            'web development studio India',
-            'SEO services for startups',
-            'AI website development',
-            'affordable branding agency',
-            'website development for small business',
+            'web development agency India',
+            'web design services',
+            'SEO company India',
             'custom website development',
+            'AI integration services',
             'digital marketing agency',
-            'react development India'
+            'logo design services',
+            'branding agency',
+            'React development',
+            'full stack development',
+            'e-commerce development',
+            'mobile app development',
+            'SEO optimization services',
+            'digital transformation',
+            'web application development',
+            'UI UX design',
+            'website maintenance services',
+            'online presence solutions',
+            'business website development',
+            'top web developers',
+            'professional web designers',
+            'affordable website design',
+            'enterprise web solutions'
           ],
           canonical: 'https://revonzastudio.com/',
           ogImage: 'https://revonzastudio.com/og-home.jpg',
@@ -89,13 +104,36 @@ const Home: React.FC = () => {
             '@context': 'https://schema.org',
             '@type': 'ProfessionalService',
             'name': 'Revonza Studio',
-            'description': 'Web Development & SEO Studio for Startups',
+            'description': 'Leading web development & SEO agency in India. Expert custom website design, AI integration, digital marketing & branding services.',
             'serviceType': [
               'Web Development',
               'SEO Services',
               'AI Integration',
+              'Digital Marketing',
               'Branding Agency',
-              'Digital Marketing'
+              'Custom Website Design',
+              'E-commerce Development',
+              'Mobile App Development'
+            ],
+            'areaServed': 'India',
+            'availableLanguage': 'en',
+            'award': [
+              'Top Web Development Agency India',
+              'Best SEO Services Provider',
+              'Leading Digital Marketing Agency'
+            ],
+            'aggregateRating': {
+              '@type': 'AggregateRating',
+              'ratingValue': '4.9',
+              'reviewCount': '50+'
+            },
+            'makesOffer': [
+              'Custom Website Development',
+              'SEO Optimization',
+              'AI Integration',
+              'Digital Marketing',
+              'Brand Identity Design',
+              'E-commerce Solutions'
             ]
           }
         }}
