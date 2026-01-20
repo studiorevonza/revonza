@@ -1,6 +1,6 @@
 services:
-- name: revonza-studio
-  type: web
+- type: web
+  name: revonza-studio
   plan: free
   env: node
   buildCommand: npm install && npm run build
