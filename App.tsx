@@ -15,18 +15,9 @@ import DetailedPricingPage from './pages/DetailedPricingPage';
 import ProjectDetailsPage from './pages/ProjectDetailsPage';
 
 // Import individual service pages
-import WebsiteDevelopmentPage from './pages/services/WebsiteDevelopmentPage';
-import AIIntegrationPage from './pages/services/AIIntegrationPage';
-import LogoDesignPage from './pages/services/LogoDesignPage';
-import ThumbnailDesignPage from './pages/services/ThumbnailDesignPage';
-import ProductLaunchingPage from './pages/services/ProductLaunchingPage';
-import HostingSolutionsPage from './pages/services/HostingSolutionsPage';
-import GraphicDesignPage from './pages/services/GraphicDesignPage';
-import DesignBrandingPage from './pages/services/DesignBrandingPage';
-import MaintenanceModificationPage from './pages/services/MaintenanceModificationPage';
+import ComingSoonPage from './pages/ComingSoonPage';
 
 // Import individual service project pages
-
 
 // Scroll to top helper
 const ScrollToTop = () => {
@@ -59,15 +50,18 @@ const App: React.FC = () => {
                             
                             
               {/* Individual Service Routes */}
-              <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />
-              <Route path="/services/ai-integration" element={<AIIntegrationPage />} />
-              <Route path="/services/logo-design" element={<LogoDesignPage />} />
-              <Route path="/services/thumbnail-design" element={<ThumbnailDesignPage />} />
-              <Route path="/services/product-launching" element={<ProductLaunchingPage />} />
-              <Route path="/services/hosting-solutions" element={<HostingSolutionsPage />} />
-              <Route path="/services/graphic-design" element={<GraphicDesignPage />} />
-              <Route path="/services/design-branding" element={<DesignBrandingPage />} />
-              <Route path="/services/maintenance-modification" element={<MaintenanceModificationPage />} />
+              <Route path="/services/website-development" element={<ComingSoonPage />} />
+              <Route path="/services/ai-integration" element={<ComingSoonPage />} />
+              <Route path="/services/logo-design" element={<ComingSoonPage />} />
+              <Route path="/services/thumbnail-design" element={<ComingSoonPage />} />
+              <Route path="/services/product-launching" element={<ComingSoonPage />} />
+              <Route path="/services/hosting-solutions" element={<ComingSoonPage />} />
+              <Route path="/services/graphic-design" element={<ComingSoonPage />} />
+              <Route path="/services/design-branding" element={<ComingSoonPage />} />
+              <Route path="/services/maintenance-modification" element={<ComingSoonPage />} />
+              
+              {/* Products Route */}
+              <Route path="/products" element={<ComingSoonPage />} />
             </Routes>
           </main>
           <Footer />

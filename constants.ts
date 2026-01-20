@@ -17,6 +17,7 @@ export const COLORS = {
 export const NAV_ITEMS: NavItem[] = [
   { label: 'Home', path: '/' },
   { label: 'Services', path: '/services' },
+  { label: 'Products', path: '/products' },
   { label: 'Projects', path: '/projects' },
   { label: 'Pricing', path: '/pricing' },
   { label: 'About', path: '/about' },
